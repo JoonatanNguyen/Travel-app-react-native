@@ -21,8 +21,10 @@ export default function home() {
   const navigation = useNavigation()
   const [gallery] = useState(galleryConstants)
 
-  const handleGoToPostPress = () => {
-    navigation.navigate('Post')
+  const handleGoToPostPress = (item) => {
+    navigation.navigate('Post', {
+      data: { image: item.image, title: item.title },
+    })
   }
 
   return (
@@ -68,7 +70,7 @@ export default function home() {
             renderItem={({ item }) => {
               return (
                 <View style={styles.topTrendingListContainer}>
-                  <TouchableOpacity onPress={handleGoToPostPress}>
+                  <TouchableOpacity onPress={() => handleGoToPostPress(item)}>
                     <Image source={item.image} style={styles.trendingImages} />
                     <View style={styles.imageOverlay} />
                     <Feather

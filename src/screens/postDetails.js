@@ -8,16 +8,18 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import { Feather } from '@expo/vector-icons'
 
 import styles from '../styles'
-import images from '../constants/images'
 import galleryConstant from '../constants/galleryConstants'
 
 export default function postDetails() {
   const navigation = useNavigation()
+  const route = useRoute()
+
   const [gallery] = useState(galleryConstant)
+  const { image, title } = route.params.data
 
   const handleGoBackPress = () => {
     navigation.goBack()
@@ -26,13 +28,13 @@ export default function postDetails() {
   return (
     <View style={styles.postImageContainer}>
       <ImageBackground
-        source={{ uri: images.switzerland }}
+        source={image}
         style={styles.postImageWrapper}
         imageStyle={styles.postImage}
       >
-        <Text style={styles.tagLine}>Discover Switzerland</Text>
+        <Text style={styles.tagLine}>{`Discover ${title}`}</Text>
         <Text style={styles.placeName}>
-          Explore the scenic beauty of Switzerland
+          {`Explore the scenic beauty of ${title}`}
         </Text>
         <TouchableOpacity onPress={handleGoBackPress} style={styles.backButton}>
           <Feather name="arrow-left" size={24} color="#fff" />
