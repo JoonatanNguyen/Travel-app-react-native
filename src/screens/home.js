@@ -18,7 +18,7 @@ import images from '../constants/images'
 
 export default function home() {
   const navigation = useNavigation()
-  const [gallery, setGallery] = useState([
+  const [gallery] = useState([
     { image: { uri: images.switzerland }, title: 'Switzerland', key: '1' },
     { image: { uri: images.spain }, title: 'Spain', key: '2' },
     { image: { uri: images.greece }, title: 'Greece', key: '3' },
