@@ -15,15 +15,11 @@ import { useNavigation } from '@react-navigation/native'
 
 import styles from '../styles'
 import images from '../constants/images'
+import galleryConstants from '../constants/galleryConstants'
 
 export default function home() {
   const navigation = useNavigation()
-  const [gallery] = useState([
-    { image: { uri: images.switzerland }, title: 'Switzerland', key: '1' },
-    { image: { uri: images.spain }, title: 'Spain', key: '2' },
-    { image: { uri: images.greece }, title: 'Greece', key: '3' },
-    { image: { uri: images.vietnam }, title: 'Viet Nam', key: '4' },
-  ])
+  const [gallery] = useState(galleryConstants)
 
   const handleGoToPostPress = () => {
     navigation.navigate('Post')

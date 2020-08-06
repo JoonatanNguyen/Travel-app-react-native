@@ -13,15 +13,11 @@ import { Feather } from '@expo/vector-icons'
 
 import styles from '../styles'
 import images from '../constants/images'
+import galleryConstant from '../constants/galleryConstants'
 
 export default function postDetails() {
   const navigation = useNavigation()
-  const [gallery] = useState([
-    { image: { uri: images.switzerland }, title: 'Switzerland', key: '1' },
-    { image: { uri: images.spain }, title: 'Spain', key: '2' },
-    { image: { uri: images.greece }, title: 'Greece', key: '3' },
-    { image: { uri: images.vietnam }, title: 'Viet Nam', key: '4' },
-  ])
+  const [gallery] = useState(galleryConstant)
 
   const handleGoBackPress = () => {
     navigation.goBack()
